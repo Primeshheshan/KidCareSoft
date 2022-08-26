@@ -3,16 +3,18 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
-import { User } from './entities/user.entity'
+import { User } from './entities/user.entity';
 import { UserResolver } from './user.resolver';
 // import { UserResolver } from './user.resolver';
 import { UserService } from './user.service';
 
 @Module({
   imports: [
-
     GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), "apps/auth/src/user/graphql-user-schema.gql"),
+      autoSchemaFile: join(
+        process.cwd(),
+        'apps/auth/src/user/graphql-user-schema.gql',
+      ),
       driver: ApolloDriver,
       cors: {
         credentials: true,
@@ -29,10 +31,10 @@ import { UserService } from './user.service';
       synchronize: true, // only use dev environment
     }),
 
-    TypeOrmModule.forFeature([User])],
+    TypeOrmModule.forFeature([User]),
+  ],
   controllers: [],
   providers: [UserService, UserResolver],
   exports: [UserService],
-
 })
-export class UserModule { }
+export class UserModule {}

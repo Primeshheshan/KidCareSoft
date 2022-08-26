@@ -1,17 +1,16 @@
-import { Field, InputType } from "@nestjs/graphql";
+import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateUserDto {
-    @Field()
-    id: string;
+  @Field()
+  id: string;
 
-    @Field()
-    email: string;
+  @Field()
+  email: string;
 
-    @Field()
-    password: string
+  @Field()
+  password: string;
 
-    @Field({ nullable: true })
-    hashedRefreshToken: string;
-
+  @Field({ nullable: true })
+  hashedRefreshToken: string;
 }

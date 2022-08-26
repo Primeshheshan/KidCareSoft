@@ -1,6 +1,5 @@
 import { Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { StudentCreateDto } from 'apps/file-processing/src/dto/create-student.input';
 import { Student } from './entities/student.entity';
 import { StudentService } from './student.service';
 

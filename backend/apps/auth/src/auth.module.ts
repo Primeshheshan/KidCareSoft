@@ -17,7 +17,12 @@ import { RefreshTokenCookieStrategy } from './strategies/refreshTokenCookie.stra
     JwtModule.register({}),
   ],
   controllers: [AuthController],
-  providers: [AuthService, RefreshTokenStrategy, AccessTokenStrategy, RefreshTokenCookieStrategy],//
+  providers: [
+    AuthService,
+    RefreshTokenStrategy,
+    AccessTokenStrategy,
+    RefreshTokenCookieStrategy,
+  ], //
   exports: [AuthService],
 })
-export class AuthModule { }
+export class AuthModule {}

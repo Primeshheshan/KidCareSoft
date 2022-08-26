@@ -7,15 +7,17 @@ import { User } from './entities/user.entity';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectRepository(User) private userRepository: Repository<User>) { }
+  constructor(
+    @InjectRepository(User) private userRepository: Repository<User>,
+  ) {}
 
   async create(email: string, password: string): Promise<User> {
     const saltRounds = 10;
     const userObj = {
       email,
       password: bcrypt.hashSync(password, saltRounds),
-      hashedRefreshToken: "",
-    }
+      hashedRefreshToken: '',
+    };
     const createdUserObj: User = this.userRepository.create(userObj);
     return await this.userRepository.save(createdUserObj);
   }
@@ -28,19 +30,21 @@ export class UserService {
     return await this.userRepository.find({
       where: {
         email,
-      }
-    })
+      },
+    });
   }
 
-  async update(user: UpdateUserDto, refresh_token: string): Promise<User | string> {
+  async update(
+    user: UpdateUserDto,
+    refresh_token: string,
+  ): Promise<User | string> {
     const newUserObj = {
       ...user,
       hashedRefreshToken: refresh_token,
-    }
+    };
 
-    let newUser: User = this.userRepository.create(newUserObj);
+    const newUser: User = this.userRepository.create(newUserObj);
     newUser.id = user.id;
-    return this.userRepository.save(newUser)
-
+    return this.userRepository.save(newUser);
   }
 }

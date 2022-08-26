@@ -1,13 +1,12 @@
-import { Body, Controller, Get, Header, Post, Req, Res, UseGuards } from '@nestjs/common';
-import { AuthService } from './auth.service';
+import { Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { AuthService } from './auth.service';
 import { AccessTokenGuard } from './guards/accessToken.guard';
-import { RefreshTokenGuard } from './guards/refreshToken.guard';
 import { RefreshTokenCookieGuard } from './guards/refreshTokenCookie.guard';
 
 @Controller()
 export class AuthController {
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
 
   /*   @Post('signup')
     async signUp(@Req() req: Request): Promise<any> {
@@ -32,47 +31,33 @@ export class AuthController {
 
   ///////////////////// send cookies /////////////////////
   @Post('signup')
-  async signUp(
-    @Req() req: Request,
-    @Res({ passthrough: true }) res: Response
-  ) {
-    const { refresh_token, access_token } = await this.authService.signUp(req.body);
-    res.cookie(
-      'refresh-token',
-      refresh_token,
-      {
-        httpOnly: true,
-      },
+  async signUp(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
+    const { refresh_token, access_token } = await this.authService.signUp(
+      req.body,
     );
-    return { access_token }
+    res.cookie('refresh-token', refresh_token, {
+      httpOnly: true,
+    });
+    return { access_token };
   }
 
-
   @Post('login')
-  async signIn(
-    @Req() req: Request,
-    @Res({ passthrough: true }) res: Response,
-  ) {
-    const { refresh_token, access_token } = await this.authService.signIn(req.body);
-    res.cookie(
-      'refresh-token',
-      refresh_token,
-      {
-        httpOnly: true,
-      },
+  async signIn(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
+    const { refresh_token, access_token } = await this.authService.signIn(
+      req.body,
     );
-    return { access_token }
+    res.cookie('refresh-token', refresh_token, {
+      httpOnly: true,
+    });
+    return { access_token };
   }
 
   @UseGuards(RefreshTokenCookieGuard)
   @Get('logout')
-  async logOut(
-    @Req() req: Request,
-    @Res({ passthrough: true }) res: Response
-  ) {
+  async logOut(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
     this.authService.logOut(req.user['email']);
-    res.clearCookie("refresh-token");
-    return { successMsg: "successfully logout" };
+    res.clearCookie('refresh-token');
+    return { successMsg: 'successfully logout' };
   }
 
   @UseGuards(RefreshTokenCookieGuard)
@@ -83,22 +68,20 @@ export class AuthController {
   ) {
     const email = req.user['email'];
     const refreshToken = req.user['refreshToken'];
-    const { refresh_token, access_token } = await this.authService.refreshToken(email, refreshToken);
-
-    res.cookie(
-      'refresh-token',
-      refresh_token,
-      {
-        httpOnly: true,
-      },
+    const { refresh_token, access_token } = await this.authService.refreshToken(
+      email,
+      refreshToken,
     );
-    return { access_token }
+
+    res.cookie('refresh-token', refresh_token, {
+      httpOnly: true,
+    });
+    return { access_token };
   }
 
   @Get('movies')
   @UseGuards(AccessTokenGuard)
-  async movies(@Req() req: Request) {
-    return ["Avatar", "Avengers"];
+  async movies() {
+    return ['Avatar', 'Avengers'];
   }
-
 }

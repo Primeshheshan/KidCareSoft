@@ -1,4 +1,3 @@
-import { InjectQueue } from '@nestjs/bull';
 import {
   Controller,
   Post,
@@ -6,7 +5,6 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { Queue } from 'bull';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
 import { FileUploadService } from './file-upload.service';
