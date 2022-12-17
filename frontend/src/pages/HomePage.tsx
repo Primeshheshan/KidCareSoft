@@ -27,7 +27,7 @@ const HomePage = () => {
       <Grid item md={12}>
         <DataTable setLoading={setLoading} />
         <Dropzone loading={loading} />
-        <Button onClick={getMovies}>get movies</Button>
+        {/* <Button onClick={getMovies}>get movies</Button> */}
       </Grid>
     </Grid>
   );
