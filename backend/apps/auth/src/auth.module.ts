@@ -5,17 +5,11 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { AccessTokenStrategy } from './strategies/accessToken.strategy';
 import { RefreshTokenStrategy } from './strategies/refreshToken.strategy';
-import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { RefreshTokenCookieStrategy } from './strategies/refreshTokenCookie.strategy';
 
 @Module({
-  imports: [
-    UserModule,
-    PassportModule,
-    ConfigModule.forRoot(),
-    JwtModule.register({}),
-  ],
+  imports: [UserModule, PassportModule, JwtModule.register({})],
   controllers: [AuthController],
   providers: [
     AuthService,
