@@ -91,7 +91,8 @@ const Dropzone = (props: IDropzoneProps) => {
                     <p>Drop files here</p>
                   ) : (
                     <p>
-                      Drag and drop some files here, or click to select files
+                      Drag and drop some files here, or click to select .csv
+                      files
                     </p>
                   )}
                 </>
