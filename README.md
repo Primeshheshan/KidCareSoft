@@ -1,4 +1,4 @@
-# NestJs monorepo application with React
+# NestJS Monorepo Application with React
 
 This system keeps information about students in a class and is powered by the [NestJS](https://nestjs.com/) framework for server-side applications and the [React](https://reactjs.org/) library for building user interfaces.
 
