@@ -9,6 +9,7 @@ This system keeps information about students in a class and is powered by the [N
 3. **[Technology stack (frontend)](#technology-stack-frontend)**<br>
 4. **[Installation Instructions](#installation-instructions)**<br>
 5. **[Mockups](#mockups)**<br>
+6. **[Example Endpoints](#example-endpoints)**<br>
 
 ## Functionalities
 
@@ -61,3 +62,107 @@ Here's how to setup locally.
 ### Home Page
 
 ![home page](/images/homepage.png)
+
+## Example Endpoints
+
+```js
+query {
+  getAllStudents {
+    id
+    name
+    gender
+    address
+    dateOfBirth
+    mobileNo
+    age
+    inEdit
+    isArchive
+  }
+}
+
+query {
+  getStudent(id: "b8c6e7f4-62d6-4890-8a13-c2393e48f3cc") {
+    name
+    gender
+    address
+    dateOfBirth
+    mobileNo
+    age
+    inEdit
+    isArchive
+  }
+}
+
+mutation {
+  createStudent(
+    studentCreateDto: {
+      name: "nimal"
+      gender: "male"
+      address: "new street"
+      dateOfBirth: "2022/7/7"
+      mobileNo: "077895623"
+      age: 9
+      inEdit: false
+      isArchive: false
+    }
+  ) {
+    id
+    name
+  }
+}
+
+mutation {
+  updateStudent(
+    updateStudentDto: {
+      id: "500cab71-4bee-405f-b919-61dc134b0ef8"
+      name: "vimal"
+      gender: "male"
+      address: "street"
+      dateOfBirth: "2022/7/4"
+      mobileNo: "0771234567"
+      age: 9
+      inEdit: false
+      isArchive: true
+    }
+  ) {
+    id
+    name
+  }
+}
+
+mutation {
+  deleteStudent(id: "239097de-2199-4f54-8d0c-38fbc3b90eb4") {
+    id
+    name
+  }
+}
+
+mutation {
+  createUser (
+    userCreateDto:{
+    email:"user3@test.com"
+    password:"123"
+    isArchive: false
+  }
+  ) {
+    id
+    email
+  }
+}
+
+query {
+  getAllUsers{
+    id
+    email
+    password
+    hashedRefreshToken
+  }
+}
+
+query {
+  getUser(email:"user2@test.com"){
+    email
+    password
+  }
+}
+```
