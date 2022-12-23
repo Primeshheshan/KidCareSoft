@@ -9,7 +9,7 @@ This system keeps information about students in a class and is powered by the [N
 3. **[Technology stack (frontend)](#technology-stack-frontend)**<br>
 4. **[Installation Instructions](#installation-instructions)**<br>
 5. **[Mockups](#mockups)**<br>
-6. **[Example Endpoints](#example-endpoints)**<br>
+6. **[Query Examples](#query-examples)**<br>
 
 ## Functionalities
 
@@ -63,7 +63,7 @@ Here's how to setup locally.
 
 ![home page](/images/homepage.png)
 
-## Example Endpoints
+## Query Examples
 
 ```js
 query {
