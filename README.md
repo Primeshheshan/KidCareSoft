@@ -1,34 +1,42 @@
 # NestJS Monorepo Application with React
 
-This system keeps information about students in a class and is powered by the [NestJS](https://nestjs.com/) framework for server-side applications and the [React](https://reactjs.org/) library for building user interfaces.
+This system keeps information about students in a class and is powered by the [NestJS](https://nestjs.com/) framework as a server-side application and the [React](https://reactjs.org/) library for building user interfaces.
 
-## The system have below functionalities
+## Table of Contents
+
+1. **[Functionalities](#functionalities)**<br>
+2. **[Technology stack (backend)](#technology-stack-backend)**<br>
+3. **[Technology stack (frontend)](#technology-stack-frontend)**<br>
+4. **[Installation Instructions](#installation-instructions)**<br>
+5. **[Mockups](#mockups)**<br>
+
+## Functionalities
 
 - The user is able to see the list of students who are already in the database using
   KendoUI data grid.
 - The user is able to add a student using the front end. (in-line insert).
 - The user is able to update any given student using inline updating.
-- The user is able to add a list of students by uploading an Excel file that contains the
+- The user is able to add a list of students by uploading an csv file that contains the
   details.
 - There are five distinct services for authentication, file processing, notification, file uploading, and managing student details for backend.
 - Notifications are shown as snackbars when a student is added, a file is uploaded, a student
   is updated or when a student is removed.
 
-## Technology stack (backend)
+## Technology Stack (backend)
 
-- NestJS - For build server-side application.
-- GraphQL - Communication happened through GraphQL, except for file uploading, which utilized using a REST endpoint.
-- TypeORM - To link with PostgreSQL database.
-- Socket.IO - Socket is utilized to send notifications to the frontend, and the WebSocket implemented using socket.io.
-- PostgreSQL - Used as a database.
-- Bull Queue - Bull Queue was used to process the uploaded files concurrently.
+- [NestJS](https://nestjs.com/) - For build server-side application.
+- [GraphQL](https://graphql.org/) - Communication happened through GraphQL, except for file uploading, which utilized using a REST endpoint.
+- [TypeORM](https://typeorm.io/) - To link with PostgreSQL database.
+- [Socket.IO](https://socket.io/) - Socket is utilized to send notifications to the frontend, and the WebSocket implemented using socket.io.
+- [PostgreSQL](https://www.postgresql.org/) - Used as a database.
+- [Bull Queue](https://docs.nestjs.com/techniques/queues) - Bull Queue was used to process the uploaded files concurrently.
 
-## Technology stack (frontend)
+## Technology Stack (frontend)
 
-- React - For build User interfaces.
-- KendoUI - For visualized student details using the KendoUI data grid.
+- [React](https://reactjs.org/) - For build User interfaces.
+- [KendoUI](https://www.telerik.com/kendo-react-ui/grid) - For visualized student details using the KendoUI data grid.
 
-## Local setup
+## Installation Instructions
 
 Here's how to setup locally.
 
@@ -46,10 +54,10 @@ Here's how to setup locally.
 
 ## Mockups
 
-### Login page
+### Login Page
 
 ![login page](/images/login-page.png)
 
-### Home page
+### Home Page
 
 ![home page](/images/homepage.png)
