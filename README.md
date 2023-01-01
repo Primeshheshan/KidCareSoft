@@ -1,4 +1,4 @@
-# Student App
+# KidCareSoft
 
 This system keeps information about students in a class and is powered by the [NestJS](https://nestjs.com/) framework as a server-side application and the [React](https://reactjs.org/) library for building user interfaces.
 
