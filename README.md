@@ -31,7 +31,7 @@ This system keeps information about students in a class and is powered by the [N
 - [Socket.IO](https://socket.io/) - Socket is utilized to send notifications to the frontend, and the WebSocket implemented using socket.io.
 - [PostgreSQL](https://www.postgresql.org/) - Used as a database.
 - [Bull Queue](https://docs.nestjs.com/techniques/queues) - Bull Queue was used to process the uploaded files concurrently.
-
+- [Redis]((https://redis.io/)) - Used as in-memory data store.
 ## Technology Stack (frontend)
 
 - [React](https://reactjs.org/) - For build User interfaces.
@@ -51,6 +51,7 @@ Here's how to setup locally.
    - `npm run start:dev file-upload` - to up file-upload service
    - `npm run start:dev notification` - to up notification service
    - `npm run start:dev student` - to up student service
+   - `sudo service redis-server start` - to start redis-server(Insall redis on your pc)
 6. In frontend folder run `npm run start`.
 
 ## Mockups
