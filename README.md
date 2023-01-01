@@ -18,7 +18,7 @@ This system keeps information about students in a class and is powered by the [N
 - The user is able to add a student using the front end. (in-line insert).
 - The user is able to update any given student using inline updating.
 - The user is able to add a list of students by uploading an csv file that contains the
-  details.
+  details. [An example csv file](backend/uploads)
 - There are five distinct services for authentication, file processing, notification, file uploading, and managing student details for backend.
 - Notifications are shown as snackbars when a student is added, a file is uploaded, a student
   is updated or when a student is removed.
